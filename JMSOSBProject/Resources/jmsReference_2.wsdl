@@ -1,0 +1,28 @@
+<wsdl:definitions
+     name="jmsReference_2"
+     targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/jms/JMSOSBApplication/JMSOSBProject/jmsReference_2"
+     xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/jms/JMSOSBApplication/JMSOSBProject/jmsReference_2"
+     xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/"
+     xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:imp1="http://www.turktelekom.com.tr/logger/common/1.0"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+  <plt:partnerLinkType name="Produce_Message_plt" >
+    <plt:role name="Produce_Message_role" >
+      <plt:portType name="tns:Produce_Message_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+    <wsdl:types>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://www.turktelekom.com.tr/logger/common/1.0" schemaLocation="../logger_event.xsd" />
+      </schema>
+    </wsdl:types>
+    <wsdl:message name="Produce_Message_msg">
+        <wsdl:part name="body" element="imp1:logger"/>
+    </wsdl:message>
+    <wsdl:portType name="Produce_Message_ptt">
+        <wsdl:operation name="Produce_Message">
+            <wsdl:input message="tns:Produce_Message_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>
